@@ -1,36 +1,122 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mapas de campaña</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
-    h1 { color: #333; }
-    ul { list-style: none; padding: 0; }
+    :root { --azul:#0070f3; --azul-dark:#005bb5; }
+    body { font-family: Arial, sans-serif; margin: 40px; background:#f9f9f9; color:#333; }
+    h1 { margin-bottom:.25rem; }
+    h2 { margin: 2rem 0 .75rem 0; }
+    p  { color:#555; }
+
+    /* Lista clásica (tus links existentes) */
+    ul { list-style: none; padding:0; }
     li { margin: 10px 0; }
-    a {
-      display: inline-block;
-      padding: 10px 15px;
-      background: #0070f3;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
+
+    /* Botones */
+    .btn {
+      display:inline-block; padding:10px 15px; background:var(--azul);
+      color:#fff; border-radius:8px; text-decoration:none; font-weight:600;
     }
-    a:hover { background: #005bb5; }
+    .btn:hover { background:var(--azul-dark); }
+
+    /* Grillas para muchas tarjetas/botones */
+    .grid {
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+      gap:12px;
+    }
+
+    .card {
+      background:#fff; border-radius:12px; padding:14px 16px; box-shadow:0 2px 8px rgba(0,0,0,.06);
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .card-title { font-weight:700; }
   </style>
 </head>
 <body>
+
   <h1>Mapas de campaña</h1>
   <p>Selecciona un mapa:</p>
+
+  <!-- ========== Sección 1: Mapas por lista/comuna (tus links existentes) ========== -->
   <ul>
-    <li><a href="https://alanamolef.github.io/mapa-comunas-listas/mapa_SAN_MIGUEL_I.html" target="_blank">Mapa San Miguel - Lista I</a></li>
-    <li><a href="https://alanamolef.github.io/mapa-comunas-listas/mapa_LO_ESPEJO_I.html" target="_blank">Mapa Lo Espejo - Lista I</a></li>
-    <li><a href="https://alanamolef.github.io/mapa-comunas-listas/mapa_EL_BOSQUE_I.html" target="_blank">Mapa El Bosque - Lista I</a></li>
-    <li><a href="https://alanamolef.github.io/mapa-comunas-listas/mapa_LA_CISTERNA_I.html" target="_blank">Mapa La Cisterna - Lista I</a></li>
-    <li><a href="https://alanamolef.github.io/mapa-comunas-listas/mapa_SAN_RAMON_I.html" target="_blank">Mapa San Ramon - Lista I</a></li>
-    <li><a href="https://alanamolef.github.io/mapa-comunas-listas/mapa_PAC_I.html" target="_blank">Mapa PAC - Lista I</a></li>
-  
-    <!-- agrega más links aquí -->
+    <li><a class="btn" href="https://alanamolef.github.io/mapa-comunas-listas/mapa_SAN_MIGUEL_I.html" target="_blank">Mapa San Miguel - Lista I</a></li>
+    <li><a class="btn" href="https://alanamolef.github.io/mapa-comunas-listas/mapa_LO_ESPEJO_I.html" target="_blank">Mapa Lo Espejo - Lista I</a></li>
+    <li><a class="btn" href="https://alanamolef.github.io/mapa-comunas-listas/mapa_EL_BOSQUE_I.html" target="_blank">Mapa El Bosque - Lista I</a></li>
+    <li><a class="btn" href="https://alanamolef.github.io/mapa-comunas-listas/mapa_LA_CISTERNA_I.html" target="_blank">Mapa La Cisterna - Lista I</a></li>
+    <li><a class="btn" href="https://alanamolef.github.io/mapa-comunas-listas/mapa_SAN_RAMON_I.html" target="_blank">Mapa San Ramón - Lista I</a></li>
+    <li><a class="btn" href="https://alanamolef.github.io/mapa-comunas-listas/mapa_PAC_I.html" target="_blank">Mapa PAC - Lista I</a></li>
   </ul>
+
+  <!-- ========== Sección 2: Concejales por (SAN MIGUEL) ========== -->
+  <h2>Concejales por (SAN MIGUEL)</h2>
+  <div class="grid">
+    <!-- Reemplaza/duplica estas líneas con tus archivos reales -->
+    <a class="btn" href="/SAN_MIGUEL_JUAN_PEREZ.html" target="_blank">Juan Pérez — San Miguel</a>
+    <a class="btn" href="/SAN_MIGUEL_MARIA_GONZALEZ.html" target="_blank">María González — San Miguel</a>
+    <!-- Agrega más candidatos de SAN MIGUEL repitiendo <a class="btn"> -->
+  </div>
+
+  <!-- ========== (Ejemplo) Concejales por otras comunas ========== -->
+  <h2>Concejales por (LO ESPEJO)</h2>
+  <div class="grid">
+    <a class="btn" href="/LO_ESPEJO_JUAN_PEREZ.html" target="_blank">Juan Pérez — Lo Espejo</a>
+    <!-- Agrega más candidatos de LO ESPEJO -->
+  </div>
+
+  <h2>Concejales por (EL BOSQUE)</h2>
+  <div class="grid">
+    <a class="btn" href="/EL_BOSQUE_MARIA_GONZALEZ.html" target="_blank">María González — El Bosque</a>
+    <!-- Agrega más candidatos de EL BOSQUE -->
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- OPCIONAL: Sección dinámica. Si agregas un maps_by_comuna.json con     -->
+  <!-- { "SAN MIGUEL":[{"label":"Juan Pérez — San Miguel","href":"/SAN_MIGUEL_JUAN_PEREZ.html"}, ...], ... } -->
+  <!-- este bloque generará automáticamente los títulos y botones.            -->
+  <!-- ===================================================================== -->
+  <h2 style="margin-top:2.5rem">Concejales por comuna (automático)</h2>
+  <p style="margin-top:-6px">Esta sección aparece si existe <code>maps_by_comuna.json</code>.</p>
+  <div id="contenedor-comunas" class="stack" style="display:flex; flex-direction:column; gap:28px;"></div>
+
+  <script>
+    fetch('maps_by_comuna.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data) return; // si no existe el JSON, no mostramos nada
+        const root = document.getElementById('contenedor-comunas');
+        Object.keys(data).forEach(comuna => {
+          // Título
+          const h2 = document.createElement('h2');
+          h2.textContent = `Concejales por (${comuna})`;
+          root.appendChild(h2);
+
+          // Grilla de botones
+          const grid = document.createElement('div');
+          grid.className = 'grid';
+
+          data[comuna].forEach(item => {
+            const a = document.createElement('a');
+            a.className = 'btn';
+            a.href = item.href;
+            a.target = '_blank';
+            a.textContent = item.label;
+            grid.appendChild(a);
+          });
+
+          root.appendChild(grid);
+        });
+      })
+      .catch(() => {/* silencioso */});
+  </script>
+
 </body>
 </html>
+
+
+
+
+
+
